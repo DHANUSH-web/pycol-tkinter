@@ -54,18 +54,19 @@ def putColor():
     except:
         messagebox.showerror("PyCOL: Error", "Please enter a valid HEX colo-code / RGB value")
 
-'''
+
 def getInfo():
     f = open("moreInfo.txt", 'r')
     r = f.read()
     f.close()
-    messagebox.showinfo("More Info", r.replace("*", "•"))
+    messagebox.showinfo("Help", r.replace("*", "•"))
 
 '''
 def getInfo():
     win = Tk()
     win['bg'] = "white"
     win.title("Welcome to PyCOL")
+    win.iconbitmap("iconImage.ico")
 
     f = open("moreInfo.txt", "r")
     r = f.read()
@@ -73,7 +74,7 @@ def getInfo():
 
     logo = Label(win, text="PyCOL", font=("Arial", 50, "bold"),
                 fg="green", bg="white")
-    logo.pack(side="left", padx=120, pady=12)
+    logo.pack(side="right", padx=120, pady=12)
 
     lbl = Label(win, text=r.replace("*", "•"), font=("consolas", 11, "bold"),
                 justify="left", bg="white")
@@ -82,9 +83,9 @@ def getInfo():
     btn = Button(win, text="Close", bg="white", fg="blue", width=12, bd=2,
                 highlightbackground="blue", highlightcolor="white", relief="ridge",
                 command=lambda: win.destroy(), font=("Arial", 12, "bold"))
-    btn.pack(side="right", padx=20, pady=20)
+    btn.pack(side="left", padx=20, pady=20)
     win.mainloop()
-
+'''
 
 def copycode():
     getCode = colorget['text']
@@ -115,7 +116,7 @@ disp = Frame(window, relief="ridge", bd=2)
 
 # display the background color in Hex Value
 colorget = Button(disp, text="#ffffff", font=("Arial", 11, "bold"),
-                  bg="white", bd=2, relief="ridge", command=copycode)
+                  bg="white", bd=2, relief="ridge", command= lambda: copycode())
 
 # enter Hex value and press the button to get RGB value
 colorput = Entry(disp, textvariable=cols, width=20, justify="center",
@@ -147,4 +148,5 @@ colorGet.pack(side="left", padx=5, pady=5, fill="x")
 info.pack(side="right", padx=5, pady=5, fill="x")
 disp.pack(side="top", padx=20, pady=20, fill="both")
 getColor()
+
 window.mainloop()

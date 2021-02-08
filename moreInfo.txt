@@ -16,7 +16,8 @@ Slide3: Used to change the value of 'BLUE' from 0 to 255
 
 Button1: Used to copy the hex color code
 
-Input space: Here, we can give the custom hex color code / RGB values to get the RGB / Hex value.
+Input space: Here, we can give the custom hex color code /
+             RGB values to get the RGB / Hex value.
 
 Note:
 **********************************************************
