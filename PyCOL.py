@@ -6,7 +6,7 @@ import pyperclip as cc
 window = Tk()
 window['bg'] = "white"
 window.title("PyCOL by Dhanush H V")
-# window.iconbitmap("iconImage.ico")
+window.iconbitmap("iconImage.ico")
 window.resizable(0, 0)
 
 v1 = DoubleVar()
@@ -30,12 +30,24 @@ def getColor():
 def putColor():
     try:
         hexcc = cols.get()
-        c = col.to_rgb(hexcc)
-        r, g, b = round(c[0]*255), round(c[1]*255), round(c[2]*255)
+        if "#" in hexcc:
+          c = col.to_rgb(hexcc)
+          r, g, b = round(c[0]*255), round(c[1]*255), round(c[2]*255)
 
-        v1.set(r)
-        v2.set(g)
-        v3.set(b)
+          v1.set(r)
+          v2.set(g)
+          v3.set(b)
+
+        else:
+          c1 = hexcc.split(",")
+          r, g, b = int(c1[0]), int(c1[1]), int(c1[2])
+          r, g, b = (r/255), (g/255), (b/255)
+          c = col.to_hex((r, g, b), False).upper()
+          window['bg'] = c
+
+          v1.set(r*255)
+          v2.set(g*255)
+          v3.set(b*255)
 
     except:
         messagebox.showerror("PyCOL: Error", "Plese enter a valid HEX colo-code")
@@ -53,12 +65,12 @@ def copycode():
   cc.copy(getCode)
   print(f"{getCode} copied to clip board")
 
-
+'''
 def choose():
   color_code = colorchooser.askcolor(title ="Choose color")
   cc.copy(str(color_code))
   print(f"{color_code} copied to clip board")
-
+'''
 
 slide1 = Scale(window, variable=v1, from_ = 0, to = 255,
               orient = HORIZONTAL, background="white",
@@ -89,14 +101,16 @@ info = Button(disp, text="More Info", width=12, bg="white",
                   font=("Arial", 12, "bold"), bd=2,
                   relief="ridge", command = lambda: getInfo())
 
+'''
 colorChoose = Button(window, text = "Choose color", font=("Arial", 11, "bold"),
                  bg="white", bd=2, relief="ridge", command=choose)
+'''
 
 # place sliders
 slide1.pack(side="top", padx=20, pady=20)
 slide2.pack(side="top", padx=20, pady=20)
 slide3.pack(side="top", padx=20, pady=20)
-colorChoose.pack(side="top", padx=20, pady=5)
+# colorChoose.pack(side="top", padx=20, pady=5)
 
 # place the entities
 colorget.pack(side="top", padx=5, pady=5, fill="x")
