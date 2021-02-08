@@ -1,0 +1,14 @@
+Hi there!
+
+This is a simple Python Tkinter project developed by Dhanush H V
+
+How to use:
+
+Slide1: Used to change the value of 'RED' from 0 to 255
+Slide2: Used to change the value of 'GREEN' from 0 to 255
+Slide3: Used to change the value of 'BLUE' from 0 to 255
+
+Hex-color-code: This displays the Hex color code when we move the sliders of RGB
+Input space: Here, we can give the custom hex color code to get the RGB values
+Button1: To apply the custom Hex color code and get the RGB values
+Button2: This is used to launch this info window
