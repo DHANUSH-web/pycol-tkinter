@@ -1,11 +1,12 @@
 from tkinter import *
-from tkinter import messagebox
+from tkinter import messagebox, colorchooser
 import matplotlib.colors as col
+import pyperclip as cc
 
 window = Tk()
 window['bg'] = "white"
 window.title("PyCOL by Dhanush H V")
-window.iconbitmap("iconImage.ico")
+# window.iconbitmap("iconImage.ico")
 window.resizable(0, 0)
 
 v1 = DoubleVar()
@@ -47,6 +48,18 @@ def getInfo():
     messagebox.showinfo("More Info", r)
 
 
+def copycode():
+  getCode = colorget['text']
+  cc.copy(getCode)
+  print(f"{getCode} copied to clip board")
+
+
+def choose():
+  color_code = colorchooser.askcolor(title ="Choose color")
+  cc.copy(str(color_code))
+  print(f"{color_code} copied to clip board")
+
+
 slide1 = Scale(window, variable=v1, from_ = 0, to = 255,
               orient = HORIZONTAL, background="white",
               length = 280, relief = "flat")
@@ -62,8 +75,8 @@ slide3 = Scale(window, variable=v3, from_ = 0, to = 255,
 disp = Frame(window, relief="ridge", bd=2)
 
 # display the background color in Hex Value
-colorget = Label(disp, text = "#ffffff", font=("Arial", 11, "bold"),
-                 bg="white", bd=2, relief="ridge")
+colorget = Button(disp, text = "#ffffff", font=("Arial", 11, "bold"),
+                 bg="white", bd=2, relief="ridge", command=copycode)
 
 # enter Hex value and press the button to get RGB value
 colorput = Entry(disp, textvariable=cols, width=20, justify="center",
@@ -76,10 +89,14 @@ info = Button(disp, text="More Info", width=12, bg="white",
                   font=("Arial", 12, "bold"), bd=2,
                   relief="ridge", command = lambda: getInfo())
 
+colorChoose = Button(window, text = "Choose color", font=("Arial", 11, "bold"),
+                 bg="white", bd=2, relief="ridge", command=choose)
+
 # place sliders
 slide1.pack(side="top", padx=20, pady=20)
 slide2.pack(side="top", padx=20, pady=20)
 slide3.pack(side="top", padx=20, pady=20)
+colorChoose.pack(side="top", padx=20, pady=5)
 
 # place the entities
 colorget.pack(side="top", padx=5, pady=5, fill="x")
