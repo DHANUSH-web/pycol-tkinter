@@ -1,8 +1,10 @@
+************************* PyCOL **************************
+
 Hi there!
 
 This is a simple Python Tkinter project developed by 'Dhanush H V'
 
-******************* How to use ***************************
+*********************** How to use ***********************
 
 Slide1: Used to change the value of 'RED' from 0 to 255
 
@@ -17,10 +19,10 @@ Button1: Used to copy the hex color code
 Input space: Here, we can give the custom hex color code / RGB values to get the RGB / Hex value.
 
 Note:
-********************************************
+**********************************************************
 Input format(HEX): #rrggbb   (Ex: #0080ff)
 Input format(RGB): rr,gg,bb  (Ex: 0,128,256)
-********************************************
+**********************************************************
 
 Button2: To apply the custom Hex color code and get the RGB values
 
@@ -32,4 +34,4 @@ License	  :	MIT License
 University:	ATME college of Engineering, Mysuru
 Course	  :	Electronics & Communication Engineering
 
-***********************************************************
+**********************************************************
