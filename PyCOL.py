@@ -50,7 +50,7 @@ def putColor():
           v3.set(b*255)
 
     except:
-        messagebox.showerror("PyCOL: Error", "Plese enter a valid HEX colo-code")
+        messagebox.showerror("PyCOL: Error", "Plese enter a valid HEX colo-code / RGB value")
 
 
 def getInfo():
@@ -88,7 +88,7 @@ disp = Frame(window, relief="ridge", bd=2)
 
 # display the background color in Hex Value
 colorget = Button(disp, text = "#ffffff", font=("Arial", 11, "bold"),
-                 bg="white", bd=2, relief="ridge", command=copycode)
+                 bg="white", bd=2, relief="ridge", command= lambda: copycode())
 
 # enter Hex value and press the button to get RGB value
 colorput = Entry(disp, textvariable=cols, width=20, justify="center",
@@ -97,12 +97,12 @@ colorGet = Button(disp, text="Apply", width=12, bg="white",
                   font=("Arial", 12, "bold"), bd=2,
                   relief="ridge", command = lambda: putColor())
 
-info = Button(disp, text="More Info", width=12, bg="white",
+info = Button(disp, text="Help", width=12, bg="white",
                   font=("Arial", 12, "bold"), bd=2,
                   relief="ridge", command = lambda: getInfo())
 
 '''
-colorChoose = Button(window, text = "Choose color", font=("Arial", 11, "bold"),
+colorChoose = Button(window, text = "color picker", font=("Arial", 11, "bold"),
                  bg="white", bd=2, relief="ridge", command=choose)
 '''
 
