@@ -7,7 +7,7 @@ import pygame
 window = Tk()
 window['bg'] = "white"
 window.title("PyCOL by Dhanush H V")
-window.iconbitmap("iconImage.ico")
+# window.iconbitmap("iconImage.ico")
 window.attributes('-topmost', 1)
 window.resizable(0, 0)
 pygame.mixer.init()
@@ -65,23 +65,31 @@ def putColor():
 def sounds(filename):
     pygame.mixer.music.load(filename)
     pygame.mixer.music.play(loops=0)
-
+'''
 def getInfo():
     f = open("moreInfo.txt", 'r')
     r = f.read()
     f.close()
     messagebox.showinfo("Help", r.replace("*", "•"))
-
 '''
+
 def getInfo():
     win = Tk()
     win['bg'] = "white"
     win.title("Welcome to PyCOL")
-    win.iconbitmap("iconImage.ico")
+    # win.iconbitmap("iconImage.ico")
 
     f = open("moreInfo.txt", "r")
     r = f.read()
     f.close()
+
+    def license():
+      f = open("LICENSE", 'r')
+      r = f.read()
+      f.close()
+
+      lbl.config(text=r)
+      logo.config(padx=20)
 
     logo = Label(win, text="PyCOL", font=("Arial", 50, "bold"),
                 fg="green", bg="white")
@@ -91,13 +99,18 @@ def getInfo():
                 justify="left", bg="white")
     lbl.pack(side="top", padx=5, pady=5, expand=True, fill="both")
 
-    btn = Button(win, text="Close", bg="white", fg="blue", width=12, bd=2,
+    btn1 = Button(win, text="Close", bg="white", fg="blue", width=12, bd=2,
                 highlightbackground="blue", highlightcolor="white", relief="ridge",
                 command=lambda: win.destroy(), font=("Arial", 12, "bold"))
-    btn.pack(side="left", padx=20, pady=20)
+    btn1.pack(side="left", padx=20, pady=20)
+
+    btn2 = Button(win, text="License", bg="white", fg="blue", width=12, bd=2,
+                highlightbackground="blue", highlightcolor="white", relief="ridge",
+                command=lambda: license(), font=("Arial", 12, "bold"))
+    btn2.pack(side="left", padx=20, pady=20)
     sounds("alert.wav")
     win.mainloop()
-'''
+
 
 def copycode():
     getCode = colorget['text']
