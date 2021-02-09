@@ -7,7 +7,7 @@ import pygame
 window = Tk()
 window['bg'] = "white"
 window.title("PyCOL by Dhanush H V")
-# window.iconbitmap("iconImage.ico")
+window.iconbitmap("iconImage.ico")  # comment this line if you are using Linux
 window.attributes('-topmost', 1)
 window.resizable(0, 0)
 pygame.mixer.init()
@@ -77,7 +77,7 @@ def getInfo():
     win = Tk()
     win['bg'] = "white"
     win.title("Welcome to PyCOL")
-    # win.iconbitmap("iconImage.ico")
+    win.iconbitmap("iconImage.ico") # comment this line if you are using Linux
 
     f = open("moreInfo.txt", "r")
     r = f.read()
