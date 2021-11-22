@@ -1,2 +1,4 @@
 # PyCOL
-Get the RGB value or HEX-color-code using the sliders
+#### A Windows Application developed with Python Tkinter package used to choose the colors in terms of RGB and HEX-code. This is very useful for the Front-End web developers and web designers to build a colorful websites
+
+## DHANUSH H V    https://www.github.com/DHANUSH-web
